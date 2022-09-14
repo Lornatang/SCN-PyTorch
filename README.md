@@ -1,4 +1,4 @@
-# MSRN-PyTorch
+# SCN-PyTorch
 
 ## Overview
 
@@ -8,7 +8,7 @@ of [Multi-scale Residual Network for Image Super-Resolution](https://openaccess.
 
 ## Table of contents
 
-- [MSRN-PyTorch](#msrn-pytorch)
+- [SCN-PyTorch](#scn-pytorch)
     - [Overview](#overview)
     - [Table of contents](#table-of-contents)
     - [Download weights](#download-weights)
@@ -42,12 +42,12 @@ Both training and testing only need to modify the `config.py` file.
 
 ### Test
 
-- line 31: `model_arch_name` change to `msrn_x2`.
+- line 31: `model_arch_name` change to `scn_x2`.
 - line 33: `in_channels` change to `3`.
 - line 35: `out_channels` change to `3`.
 - line 37: `upscale_factor` change to `3`.
 - line 39: `mode` change to `test`.
-- line 72: `model_weights_path` change to `./results/pretrained_models/MSRN_x2-DIV2K-e19a5cef.pth.tar`.
+- line 72: `model_weights_path` change to `./results/pretrained_models/SCN_x2-DIV2K-e19a5cef.pth.tar`.
 -
 
 ```bash
@@ -56,12 +56,12 @@ python3 test.py
 
 ### Train model
 
-- line 31: `model_arch_name` change to `msrn_x2`.
+- line 31: `model_arch_name` change to `scn_x2`.
 - line 33: `in_channels` change to `3`.
 - line 35: `out_channels` change to `3`.
 - line 37: `upscale_factor` change to `3`.
 - line 41: `mode` change to `train`.
-- line 55: `pretrained_model_weights_path` change to `./results/pretrained_models/MSRN_x2-DIV2K-e19a5cef.pth.tar`.
+- line 55: `pretrained_model_weights_path` change to `./results/pretrained_models/SCN_x2-DIV2K-e19a5cef.pth.tar`.
 
 ```bash
 python3 train.py
@@ -69,12 +69,12 @@ python3 train.py
 
 ### Resume train model
 
-- line 31: `model_arch_name` change to `msrn_x2`.
+- line 31: `model_arch_name` change to `scn_x2`.
 - line 33: `in_channels` change to `3`.
 - line 35: `out_channels` change to `3`.
 - line 37: `upscale_factor` change to `3`.
 - line 41: `mode` change to `train`.
-- line 58: `resume` change to `samples/msrn_x2/epoch_xxx.pth.tar`.
+- line 58: `resume` change to `samples/scn_x2/epoch_xxx.pth.tar`.
 
 ```bash
 python3 train.py
@@ -95,7 +95,7 @@ In the following table, the psnr value in `()` indicates the result of the proje
 |  Set5   |   8   | 26.59(**26.74**) |
 
 ```bash
-# Download `MSRN_x2-DIV2K-e19a5cef.pth.tar` weights to `./results/pretrained_models`
+# Download `SCN_x2-DIV2K-e19a5cef.pth.tar` weights to `./results/pretrained_models`
 # More detail see `README.md<Download weights>`
 python3 ./inference.py
 ```
@@ -109,8 +109,8 @@ Output:
 <span align="center"><img width="240" height="360" src="figure/comic_sr.png"/></span>
 
 ```text
-Build `msrn_x2` model successfully.
-Load `msrn_x2` model weights `./results/pretrained_models/MSRN_x2-DIV2K-e19a5cef.pth.tar` successfully.
+Build `scn_x2` model successfully.
+Load `scn_x2` model weights `./results/pretrained_models/SCN_x2-DIV2K-e19a5cef.pth.tar` successfully.
 SR image save to `./figure/comic_sr.png`
 ```
 
@@ -132,7 +132,7 @@ Recent studies have shown that deep neural networks can significantly improve th
 super-resolution. Current researches tend to use deeper convolutional neural networks to enhance performance. However,
 blindly increasing the depth of the network cannot ameliorate the network effectively. Worse still, with the depth of
 the network increases, more problems occurred in the training process and more training tricks are needed. In this
-paper, we propose a novel multi-scale residual network (MSRN) to fully exploit the image features, which outperform most
+paper, we propose a novel multi-scale residual network (SCN) to fully exploit the image features, which outperform most
 of the state-of-the-art methods. Based on the residual block, we introduce convolution kernels of different sizes to
 adaptively detect the image features in different scales. Meanwhile, we let these features interact with each other to
 get the most efficacious image information, we call this structure Multi-scale Residual Block (MSRB). Furthermore, the
